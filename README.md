@@ -23,3 +23,12 @@ Please send <a href="http://www.bbci.de/competition/iv/#download" target="_blank
 
 ### \<Code\>
 - This repository has a main m.file:<br />
+
+
+
+
+### \<Environments\>
+MALBAB R2017a
+ 1. Signal Processing Toolbox
+ 2. Statics and Machine Learning Toolbox
+ 3. Wavelet Toolbox
