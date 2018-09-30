@@ -22,9 +22,9 @@ submitted to Global SIP 2018
 Please send <a href="http://www.bbci.de/competition/iv/#download" target="_blank">e-mail</a> to access the data before using our codes.
 
 ### \<Code\>
-This repository has a main m.file which is consisted of preprocessing and postprocessing steps.<br />
-You can calculate classification accuracies with 10-fold cross validation after saving feature vectors through preprocessing step.<br />
-In addition, you can change each parameter in this framework by changing the value in set_config.m file.
+- This repository has a main m.file which is consisted of preprocessing and postprocessing steps.<br />
+- You can calculate classification accuracies with 10-fold cross validation after saving feature vectors through preprocessing step.<br />
+- In addition, you can change each parameter in this framework by changing the value in set_config.m file.<br />
 
 ### \<Environments\>
 MALBAB R2017a
