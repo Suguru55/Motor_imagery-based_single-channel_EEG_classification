@@ -23,7 +23,7 @@ Please send <a href="http://www.bbci.de/competition/iv/#download" target="_blank
 
 ### \<Code\>
 This repository has a main m.file which is consisted of preprocessing and postprocessing steps.<br />
-You can directly calculate classification accuracies after saving feature vectors through preprocessing step.<br />
+You can calculate classification accuracies after saving feature vectors through preprocessing step.<br />
 
 ### \<Environments\>
 MALBAB R2017a
