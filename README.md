@@ -22,13 +22,12 @@ submitted to Global SIP 2018
 Please send <a href="http://www.bbci.de/competition/iv/#download" target="_blank">e-mail</a> to access the data before using our codes.
 
 ### \<Code\>
-- This repository has a main m.file:<br />
-
-
-
+This repository has a main m.file which is consisted of preprocessing and postprocessing steps.<br />
+You can directly calculate classification accuracies after saving feature vectors through preprocessing step.<br />
 
 ### \<Environments\>
 MALBAB R2017a
  1. Signal Processing Toolbox
  2. Statics and Machine Learning Toolbox
- 3. Wavelet Toolbox
+ 3. Image Processing Toolbox
+ 4. Neural Network Toolbox
