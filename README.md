@@ -32,3 +32,5 @@ MALBAB R2017a
  2. Statics and Machine Learning Toolbox
  3. Image Processing Toolbox
  4. Neural Network Toolbox
+ 5. <a href="http://biosig.sourceforge.net/download.html" target="_blank">BioSig for Octave and Matlab v3.2.0</a>
+ 6. <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/#matlab" target="_blank">LIBSVM for matlab</a>
