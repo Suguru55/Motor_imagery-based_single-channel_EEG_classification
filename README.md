@@ -1,5 +1,8 @@
 # Motor imagery-based single-channel EEG classification
-submitted to Global SIP 2018
+
+This code is described in the paper
+`A Comparative Study of Features and Classifiers in Single-channel EEG-based Motor Imagery BCI` 
+accepted by *Global SIP 2018*.<br />
 
 ### \<Overview\>
 - Matlab scripts in this repository determined __the best combination of channel, feature, and classifer that maximizes the classification accuracy of single-channel EEG-based motor imagery BCIs.__<br />
