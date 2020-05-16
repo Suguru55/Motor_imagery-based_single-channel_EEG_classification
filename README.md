@@ -1,7 +1,7 @@
 # Motor imagery-based single-channel EEG classification
 
 This code is described in the paper
-`A Comparative Study of Features and Classifiers in Single-channel EEG-based Motor Imagery BCI` 
+<a href="https://ieeexplore.ieee.org/abstract/document/8646636/" target="_blank">A Comparative Study of Features and Classifiers in Single-channel EEG-based Motor Imagery BCI</a> 
 accepted by *Global SIP 2018*.<br />
 
 ### \<Overview\>
