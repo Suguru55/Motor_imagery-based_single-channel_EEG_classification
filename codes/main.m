@@ -121,6 +121,7 @@ for sub_id = 1:config.sub_num
                 class_testing = [ones(size(testing_c{1},2),1); ones(size(testing_c{2},2),1)+1];
                 pow_tr = cat(3,pow_tr_c{1},pow_tr_c{2});
                 
+                cd(config.code_dir)
                 for method_ind = 1:config.method_num
                     switch  method_ind
                         case 1

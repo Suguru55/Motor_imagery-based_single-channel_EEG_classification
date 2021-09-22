@@ -50,3 +50,5 @@ for session_id = 1:config.session_num
         lib_classlabel = [lib_classlabel; classlabel];
     end
 end
+
+cd(config.code_dir);

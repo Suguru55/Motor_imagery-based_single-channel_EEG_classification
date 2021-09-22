@@ -1,7 +1,7 @@
 function struct = set_config
 
 % change your directory
-main_dir = 'C:\Users\3usgr\Desktop\SC_motor_imagery\';
+main_dir = 'C:\Users\eyed164\Desktop\Motor_imagery-based_single-channel_EEG_classification-master\';
 struct.code_dir = [main_dir, 'codes'];
 struct.data_dir = [main_dir, 'data'];
 struct.save_dir = main_dir;
