@@ -91,7 +91,7 @@ for sub_id = 1:config.sub_num
                 best_test_acc = ave_acc;
             end
     
-            for method_ind = 1:method_num
+            for method_ind = 1:config.method_num
                 if best_test_acc(:,method_ind) < ave_acc(:,method_ind)
                     mlp.train_acc(:,:,method_ind) = temp.train_acc(:,:,method_ind);
                     mlp.test_acc(:,:,method_ind) = temp.test_acc(:,:,method_ind);
