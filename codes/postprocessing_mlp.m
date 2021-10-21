@@ -21,7 +21,7 @@ for sub_id = 1:config.sub_num
         class_testing_last = class_testing;
         class_training_last = class_training;        
             
-        for neuro_ind = [16,32,64,100,150,200,250,300,400]
+        for neuro_ind = config.mlp_neuro_num
             for method_ind = 1:config.method_num
                 for iter_ind = 1:config.iter_num
                     for cv_ind = 1:config.cv_num
@@ -35,16 +35,8 @@ for sub_id = 1:config.sub_num
                            class_training = class_training_last;
                            class_testing = class_testing_last;
                        else
-                           if sub_id == 9
-                               class_training =  class_training_last(3:end-2,:);
-                               class_testing = [ones(12,1);ones(13,1)+1];
-                           elseif sub_id == 6
-                               class_training =  class_training_last(2:end-1,:);
-                               class_testing = [ones(11,1);ones(12,1)+1];          
-                           else
-                               class_training = [ones(size(f_train,2)/2,1);ones(size(f_train,2)/2,1)+1];
-                               class_testing = [ones(size(f_test,2)/2,1);ones(size(f_test,2)/2,1)+1];
-                           end
+                           class_training = [ones(size(f_train,2)/2,1);ones(size(f_train,2)/2,1)+1];
+                           class_testing = [ones(size(f_test,2)/2,1);ones(size(f_test,2)/2,1)+1];
                        end
                        
                        output_train_matrix = zeros(2,size(class_training,1));
@@ -81,7 +73,7 @@ for sub_id = 1:config.sub_num
             test_acc = reshape(test_acc,[config.cv_num*config.iter_num,config.method_num]);
             ave_acc = mean(test_acc,1);
             
-            if neuro_ind==16
+            if neuro_ind==config.mlp_neuro_num(1)
                 mlp.train_acc = temp.train_acc;
                 mlp.test_acc = temp.test_acc;
                 mlp.classification_train = temp.classification_train;

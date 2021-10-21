@@ -39,3 +39,11 @@ struct.overlap = 50;
 struct.bin_num = 20;
 struct.L = 7;
 struct.offsets = [0 1; -1 1; -1 0; -1 -1]; % offsets for GLCM
+
+% hyperparameters
+struct.knn_k = 1:7;
+struct.gmm_order = 1:5;
+struct.rf_leaf = [1,5,10,20,50,100];
+struct.mlp_neuro_num = [16,32,64,100,150,200,250,300,400];
+struct.svm_log2c = 0:2:16;
+struct.svm_log2g = -16:2:-2;

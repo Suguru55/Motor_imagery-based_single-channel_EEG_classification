@@ -7,7 +7,7 @@
 % Before using this script, you should download data from BCI competition
 % IV dataset 2a.
 % 
-% Suguru Kanoga, 4-Dec.-2018
+% Suguru Kanoga, 21-Oct.-2021
 %  Artificial Intelligence Research Center, National Institute of Advanced
 %  Industrial Science and Technology (AIST)
 %  E-mail: s.kanouga@aist.go.jp
@@ -37,9 +37,18 @@ for sub_id = 1:config.sub_num
     
     % set parameters for cross-validation
     c_ind{1} = find(labels==1); % class 1
-    c_step_size(1,1) = ceil(size(c_ind{1},1)/config.cv_num);
-    
     c_ind{2} = find(labels==2); % class 2
+    
+    % modify indeces to be the same number
+    if length(c_ind{1}) < length(c_ind{2})
+       c_ind{2} = c_ind{2}(1:length(c_ind{1}));
+    else
+        if length(c_ind{1}) > length(c_ind{2})
+            c_ind{1} = c_ind{1}(1:length(c_ind{2}));
+        end
+    end
+    
+    c_step_size(1,1) = ceil(size(c_ind{1},1)/config.cv_num);
     c_step_size(1,2) = ceil(size(c_ind{2},1)/config.cv_num);
     
     for pos_ind = 1:config.position_num
@@ -152,6 +161,8 @@ for sub_id = 1:config.sub_num
         eval(sprintf('filename=[''feature_s%dch%d''];',sub_id,pos_ind));
         save(filename,'f_tr','f_te','class_training','class_testing')
     end
+    
+    cd(config.code_dir);
 end
 
 %% Main stream (post-processing)
@@ -171,10 +182,10 @@ disp('svm done')
 
 %% Main stream (comparison)
 cd(config.save_dir);
-all_acc = zeros(3,900,6);
+all_acc = zeros(config.method_num, config.sub_num*config.cv_num*config.iter_num, 6);
 
 for classifier_ind = 1:6
-    lib_acc = zeros(3,900);
+    lib_acc = zeros(size(all_acc,1), size(all_acc,2));
     for sub_id = 1:config.sub_num
         for pos_ind = 1:config.position_num
             switch classifier_ind
@@ -204,19 +215,25 @@ for classifier_ind = 1:6
                     acc = cell2mat(svm_rbf.test_acc);                    
             end
             
-            acc = reshape(acc,[config.cv_num*config.iter_num,config.method_num]);
+            acc = reshape(acc, [config.cv_num*config.iter_num,config.method_num]);
             ave_acc = mean(acc,1);
             
             if pos_ind == 1
                 best_acc = ave_acc;
-                lib_acc(:,1+100*(sub_id-1):100+100*(sub_id-1)) = acc';
+                best_pos = pos_ind;
+                best_sub = sub_id;
+                best_classifier = classifier_ind;
+                lib_acc(:,1+config.cv_num*config.iter_num*(sub_id-1):config.cv_num*config.iter_num+config.cv_num*config.iter_num*(sub_id-1)) = acc';
             end
             
             for method_ind = 1:3
                 if best_acc(1,method_ind) < ave_acc(1,method_ind)
                     best_acc(1,method_ind) = ave_acc(1,method_ind);
-                    lib_acc(method_ind,1+100*(sub_id-1):100+100*(sub_id-1)) = acc(:,method_ind)';
-                end 
+                    best_pos(1, method_ind) = pos_ind;
+                    best_sub(1, method_ind) = sub_id;
+                    best_classifier(1, method_ind) = classifier_ind;
+                    lib_acc(method_ind,1+config.cv_num*config.iter_num*(sub_id-1):config.cv_num*config.iter_num+config.cv_num*config.iter_num*(sub_id-1)) = acc(:,method_ind)';
+                end
             end
         end
     end

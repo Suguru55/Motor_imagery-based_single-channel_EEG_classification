@@ -18,7 +18,7 @@ net.trainParam.time = 60*60;
 net.trainParam.showWindow = false; 
 
 % train a neural network
-net = train(net,TrainData,TrainClass,'useParallel','yes','useGPU','yes');
+net = train(net,TrainData,TrainClass,'useParallel','yes');
 y_train = net(TrainData);
 
 % test
